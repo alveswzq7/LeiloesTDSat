@@ -7,6 +7,7 @@
  *
  * @author Adm
  */
+import javax.swing.JOptionPane;
 public class cadastroVIEW extends javax.swing.JFrame {
 
     /**
@@ -148,9 +149,13 @@ public class cadastroVIEW extends javax.swing.JFrame {
         produto.setValor(Integer.parseInt(valor));
         produto.setStatus(status);
         
-        ProdutosDAO produtodao = new ProdutosDAO();
-        produtodao.cadastrarProduto(produto);
-        
+      ProdutosDAO produtodao = new ProdutosDAO();
+
+if (produtodao.cadastrarProduto(produto)) {
+    JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");
+} else {
+    JOptionPane.showMessageDialog(null, "Erro ao cadastrar produto.");
+}
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
